@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container" id="login_section">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2 class="mb-4">Login</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5" id="transaction_section">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="transaction_form">
+                    <div class="mb-3">
+                        <label for="agreementNumber" class="form-label">Agreement Number</label>
+                        <input type="text" maxlength="100" class="form-control" id="agreementNumber" name="agreementNumber" placeholder="Input agreement number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchID" class="form-label">Branch ID</label>
+                        <input type="text" maxlength="10" class="form-control" id="branchID" name="branchID" placeholder="Input Branch ID">
+                    </div>
+                    <div class="mb-3">
+                        <label for="noBPKB" class="form-label">NO. BPKB</label>
+                        <input type="text" maxlength="100" class="form-control" id="noBPKB" name="noBPKB" placeholder="Input No BPKB">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggalBPKBIn" class="form-label">Tanggal BPKB in</label>
+                        <input type="date" class="form-control" id="tanggalBPKBIn" name="tanggalBPKBIn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggalBPKB" class="form-label">Tanggal BPKB</label>
+                        <input type="date" class="form-control" id="tanggalBPKB" name="tanggalBPKB">
+                    </div>
+                    <div class="mb-3">
+                        <label for="noFaktur" class="form-label">No. Faktur</label>
+                        <input type="text" maxlength="100" class="form-control" id="noFaktur" name="noFaktur" placeholder="Input no Faktur">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form id="transaction_form2">
+                    <div class="mb-3">
+                        <label for="tanggalFaktur" class="form-label">Tanggal Faktur</label>
+                        <input type="date" class="form-control" id="tanggalFaktur" name="tanggalFaktur">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nomorPolisi" maxlength="20" class="form-label">Nomor Polisi</label>
+                        <input type="text" class="form-control" id="nomorPolisi" name="nomorPolisi" placeholder="Input no Polisi">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lokasiPenyimpanan" class="form-label">Lokasi Penyimpanan</label>
+                        <select class="form-control" id="lokasiPenyimpanan" name="lokasiPenyimpanan">
+                            <option value="" disabled selected>Silakan pilih lokasi</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
