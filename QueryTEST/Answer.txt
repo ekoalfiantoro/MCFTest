@@ -1,0 +1,66 @@
+1. Kolom yang bisa dijadikan primary key:
+
+Tabel Pembayaran: NoKontrak (Primary Key)
+Tabel Cabang: KodeCabang (Primary Key)
+Tabel Motor: KodeMotor (Primary Key)
+
+Kolom yang bisa dijadikan foreign key:
+Tabel Pembayaran: KodeCabang (Foreign Key mengacu pada Tabel Cabang)
+Tabel Pembayaran: KodeMotor (Foreign Key mengacu pada Tabel Motor)
+
+2. Query untuk menampilkan data pembayaran yang dibayarkan pada tanggal 20-10-2014:
+SELECT *
+FROM TabelPembayaran
+⁠WHERE DATE(TglBayar) = '2014-10-20';
+
+3. Query untuk menambahkan data pada tabel "Cabang" dengan informasi berikut: kode cabang 200, nama cabang Tangerang:
+INSERT INTO TabelCabang (KodeCabang, NamaCabang)
+VALUES (200, 'Tangerang');
+
+4. Query untuk update data "Kode Motor" pada tabel "Pembayaran" menjadi "001" untuk semua Cabang Jakarta:
+UPDATE TabelPembayaran
+SET KodeMotor = '001'
+WHERE KodeCabang = '115';
+
+5. Query untuk menampilkan data dengan informasi yang diminta adalah sebagai berikut:
+SELECT
+    p.NoKontrak,
+    p.TglBayar,
+    p.JumlahBayar,
+    p.KodeCabang,
+    c.NamaCabang,
+    p.NoKwitansi,
+    p.KodeMotor,
+    m.NamaMotor
+FROM
+    TabelPembayaran p
+JOIN
+    TabelCabang c ON p.KodeCabang = c.KodeCabang
+JOIN
+    TabelMotor m ON p.KodeMotor = m.KodeMotor;
+
+6. Query untuk menampilkan data dengan informasi yang diminta adalah sebagai berikut:
+SELECT
+    c.KodeCabang,
+    c.NamaCabang,
+    p.NoKontrak,
+    p.NoKwitansi
+FROM
+    TabelCabang c
+LEFT JOIN
+    TabelPembayaran p ON c.KodeCabang = p.KodeCabang;
+
+
+7. Query untuk menampilkan data dengan informasi yang diminta adalah sebagai berikut:
+SELECT
+    c.KodeCabang,
+    c.NamaCabang,
+    COUNT(p.NoKontrak) AS TotalData,
+    SUM(p.JumlahBayar) AS TotalBayar
+FROM
+    TabelCabang c
+LEFT JOIN
+    TabelPembayaran p ON c.KodeCabang = p.KodeCabang
+GROUP BY
+    c.KodeCabang,
+    c.NamaCabang;
